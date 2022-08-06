@@ -1,0 +1,118 @@
+from tkinter import *
+from turtle import color
+
+
+def register_user():
+
+  username_info = username.get()
+  password_info = password.get()
+  Stream_info = Stream.get()
+
+  file=open(username_info+".txt", "w")
+  file.write(username_info+"\n")
+  file.write(password_info)
+  file.close()
+
+  username_entry.delete(0, END)
+  password_entry.delete(0, END)
+
+  Label(screen1, text = "Registration   Sucess", fg = "green" ,font = ("Alternate Gothic", 11)).pack()
+
+def register():
+  global screen1
+  screen1 = Toplevel(screen)
+  screen1.title("Register")
+  screen1.geometry("300x250")
+  
+  
+  
+  global Stream
+  global password
+  global username_entry
+  global Stream_entry
+  global password_entryt
+  username = StringVar()
+  password = StringVar()
+  #Sream = StringVar()
+
+ 
+
+ 
+
+
+  Label(screen1, text = "Please enter details below").pack()
+  Label(screen1, text = "").pack()
+  Label(screen1, text = "Username  ").pack()
+  username_entry = Entry(screen1, textvariable = username)
+  username_entry.pack() 
+
+  Label(screen1, text = "Password  ").pack()
+  password_entry =  Entry(screen1, textvariable = password)
+  password_entry.pack()
+
+#STARTING MSGS
+
+print("WELCOME TO SKILLATHON 2.0")
+
+
+
+School = input("What school do you study in?" )
+print(School, "Oh..That is a great school")
+Name = input("What is you principals name ?" )
+
+
+
+
+
+print("Streams:")
+print("1. Robotics")
+print("2. Computer programming")
+print("3. Video editing")
+
+
+Stream = input("What stream would you like to choose?")
+print(Stream, "Great Choice")
+
+#Label(screen1, text = "Stream * ").pack()
+  #Stream = Entry(screen1, textvariable = Stream)
+  #tream_entry.pack() 
+
+
+
+#Label(screen1, text = "").pack()
+#Button(screen1, text = "Register", width = 10, height = 1, command = register_user).pack()  
+
+
+
+
+
+
+
+def login():
+  print("Login session started")
+  input('What is your phone number?')
+  print('Sending otp ')
+
+
+
+
+
+def main_screen():
+  global screen
+  screen = Tk()
+  screen.geometry("400x350")
+  screen.title("Please Login To Continue	")
+  Label(text = "Please Login To Continue     ", bg = "Grey", width = "200", height = "4", font = ("Calibri", 13)).pack()
+  Label(text = "").pack()
+  Button(text = "Sign In", height = "2", width = "30", command = login).pack()
+  Label(text = "").pack()
+  Button(text = "Sign Up",height = "2", width = "30", command = register).pack()
+  Label(text = "").pack()
+  
+
+  screen.mainloop()
+
+main_screen()
+
+
+
